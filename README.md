@@ -3,9 +3,9 @@ Smart Home app for managing, automating, and monitoring connected devices. Featu
 
 <h2>Developers</h2>
 
-- **Leon Bučić**
-- **Filip Jurčević**
-- **Eleonora Vrcelj**
+- Leon Bučić
+- Filip Jurčević
+- Eleonora Vrcelj
 
 <h2>Features</h2>
 Device Management: Easily add, remove, and configure smart devices in your home.
