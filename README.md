@@ -15,4 +15,3 @@ Smart Home app for managing, automating, and monitoring connected devices. Featu
 - **Logging**: All interactions with devices are logged, allowing users to see which actions were performed, by whom, and when.
 
 
-https://github.com/OSS-Java-Seminar-2024/SmartHome/blob/main/WhatsApp%20Image%202024-10-21%20at%2009.20.19.jpeg?raw=true
