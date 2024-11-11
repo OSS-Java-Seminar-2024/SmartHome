@@ -18,5 +18,5 @@ Smart Home app for managing, automating, and monitoring connected devices. Featu
 
 <h2>Database</h2>
 
-![WhatsApp Image 2024-10-28 at 12 50 17_8ab8b338](https://github.com/user-attachments/assets/fec5de3d-cb31-422d-b918-84e315930160)
+![Database_relationship](relationship.png)
 
