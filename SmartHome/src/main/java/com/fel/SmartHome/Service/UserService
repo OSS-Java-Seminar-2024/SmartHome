@@ -1,0 +1,53 @@
+package com.fel.SmartHome.Service;
+
+import com.fel.SmartHome.Model.User;
+import com.fel.SmartHome.Repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    /**
+     * Registers a new user if the username is not already taken.
+     *
+     * @param username the username of the user
+     * @param password the password of the user
+     * @param email    the email of the user
+     * @return the saved User object, or null if registration fails
+     */
+    public User registerUser(String username, String password, String email) {
+        if (username != null && password != null) {
+            // Check if the username already exists
+            if (userRepository.findByUsername(username).isPresent()) {
+                System.out.println("Username already exists");
+                return null;
+            }
+            // Create and save the new user
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setEmail(email);
+            return userRepository.save(user);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Authenticates a user by username and password.
+     *
+     * @param username the username of the user
+     * @param password the password of the user
+     * @return the authenticated User object, or null if authentication fails
+     */
+    public User authenticateUser(String username, String password) {
+        Optional<User> user = userRepository.findByUsernameAndPassword(username, password);
+        return user.orElse(null);
+    }
+}
