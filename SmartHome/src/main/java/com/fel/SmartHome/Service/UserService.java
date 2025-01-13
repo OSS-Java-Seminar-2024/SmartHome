@@ -16,19 +16,19 @@ public class UserService {
     }
 
     public User registerUser(User user) {
-        if (userRepository.findByUsername(user.getUsername()).isPresent()) {  // Check for existing username
+        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new RuntimeException("Username already exists");
         }
-        user.setPassword(passwordEncoder.encode(user.getPassword())); // Encrypt password
-        user.setRole("ROLE_USER"); // Default role
-        return userRepository.save(user); // Save the user
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole("ROLE_USER");
+        return userRepository.save(user);
     }
 
     public User loginUser(String username, String password) {
-        User user = userRepository.findByUsername(username).orElse(null); // Retrieve user by username
-        if (user == null || !passwordEncoder.matches(password, user.getPassword())) {  // Check credentials
+        User user = userRepository.findByUsername(username).orElse(null);
+        if (user == null || !passwordEncoder.matches(password, user.getPassword())) {
             throw new RuntimeException("Invalid credentials");
         }
-        return user; // Return authenticated user
+        return user;
     }
 }
