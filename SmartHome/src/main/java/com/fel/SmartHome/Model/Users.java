@@ -9,11 +9,11 @@ import lombok.*;
 @ToString
 
 @Entity
-public class User {
+public class Users {
     @Id
     @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
+            name = "users_sequence",
+            sequenceName = "users_sequence",
             allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.IDENTITY)

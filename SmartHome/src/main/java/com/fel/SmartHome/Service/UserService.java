@@ -1,6 +1,6 @@
 package com.fel.SmartHome.Service;
 
-import com.fel.SmartHome.Model.User;
+import com.fel.SmartHome.Model.Users;
 import com.fel.SmartHome.Repository.UserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,20 +15,20 @@ public class UserService {
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
-    public User registerUser(User user) {
-        if (userRepository.findByUsername(user.getUsername()).isPresent()) {
+    public Users registerUser(Users users) {
+        if (userRepository.findByUsername(users.getUsername()).isPresent()) {
             throw new RuntimeException("Username already exists");
         }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("ROLE_USER");
-        return userRepository.save(user);
+        users.setPassword(passwordEncoder.encode(users.getPassword()));
+        users.setRole("ROLE_USER");
+        return userRepository.save(users);
     }
 
-    public User loginUser(String username, String password) {
-        User user = userRepository.findByUsername(username).orElse(null);
-        if (user == null || !passwordEncoder.matches(password, user.getPassword())) {
+    public Users loginUser(String username, String password) {
+        Users users = userRepository.findByUsername(username).orElse(null);
+        if (users == null || !passwordEncoder.matches(password, users.getPassword())) {
             throw new RuntimeException("Invalid credentials");
         }
-        return user;
+        return users;
     }
 }
