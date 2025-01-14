@@ -57,19 +57,6 @@ RUN --mount=type=bind,source=pom.xml,target=pom.xml \
 # eclipse-temurin@sha256:99cede493dfd88720b610eb8077c8688d3cca50003d76d1d539b0efc8cca72b4.
 FROM eclipse-temurin:17-jre-jammy AS final
 
-# Create a non-privileged user that the app will run under.
-# See https://docs.docker.com/go/dockerfile-user-best-practices/
-ARG UID=10001
-RUN adduser \
-    --disabled-password \
-    --gecos "" \
-    --home "/nonexistent" \
-    --shell "/sbin/nologin" \
-    --no-create-home \
-    --uid "${UID}" \
-    appuser
-USER appuser
-
 # Copy the executable from the "package" stage.
 COPY --from=package build/target/app.jar app.jar
 
