@@ -1,15 +1,17 @@
 
 services:
-  server:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  app:
+    build: .
     ports:
-      - "8081:8081"
+      - "8085:8085"
     depends_on:
       - postgres-db
     restart: always
+    container_name: smarthome-app
     environment:
+      SPRING_FLYWAY_ENABLED: "true"
+      SPRING_FLYWAY_LOCATIONS: classpath:db/migration
+      SERVER_PORT: 8085
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/smarthome
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: admin
