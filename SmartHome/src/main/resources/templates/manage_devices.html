@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Devices</title>
+</head>
+<body>
+<h1>Manage Your Smart Home Devices</h1>
+
+<!-- Example: Add a new device -->
+<form th:action="@{/devices/add}" method="post">
+    <label for="deviceName">Device Name:</label>
+    <input type="text" id="deviceName" name="deviceName" required/><br>
+
+    <label for="deviceType">Device Type:</label>
+    <input type="text" id="deviceType" name="deviceType" required/><br>
+
+    <button type="submit">Add Device</button>
+</form>
+
+<h2>Current Devices:</h2>
+<ul>
+    <!-- Example: Display list of devices -->
+    <li>Device 1</li>
+    <li>Device 2</li>
+</ul>
+
+<a href="/user/dashboard">Back to Dashboard</a>
+</body>
+</html>

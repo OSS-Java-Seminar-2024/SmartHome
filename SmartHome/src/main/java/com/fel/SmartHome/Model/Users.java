@@ -2,14 +2,15 @@ package com.fel.SmartHome.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-
 @Entity
 public class Users {
+
     @Id
     @SequenceGenerator(
             name = "users_sequence",
@@ -25,7 +26,7 @@ public class Users {
     @Column(nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String role;
-
+    private Role role;  // Use the Role enum instead of a string
 }

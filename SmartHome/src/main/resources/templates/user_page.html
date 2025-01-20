@@ -1,11 +1,26 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Personal Page</title>
+    <title>User Dashboard</title>
 </head>
 <body>
-<h1>Dobrodošli na osobnu stranicu </h1>
+<h1>Welcome, <span th:text="${user.username}"></span>!</h1>
+
+<h2>Your Role: <span th:text="${user.role}"></span></h2>
+
+<div th:if="${user.role == 'OWNER'}">
+    <h3>As an Owner, you can manage the smart home devices:</h3>
+    <!-- Add links or controls for managing devices -->
+    <a href="/devices/manage">Manage Devices</a>
+</div>
+
+<div th:if="${user.role == 'GUEST'}">
+    <h3>As a Guest, you have limited control:</h3>
+    <!-- Add links or controls for limited guest access -->
+    <a href="/devices/view">View Devices</a>
+</div>
+
+<br>
+<a href="/logout">Logout</a>
 </body>
 </html>
