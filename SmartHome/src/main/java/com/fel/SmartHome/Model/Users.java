@@ -28,5 +28,5 @@ public class Users {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role;  // Use the Role enum instead of a string
+    private Role role;
 }
