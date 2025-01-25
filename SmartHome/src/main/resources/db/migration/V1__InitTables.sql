@@ -23,7 +23,8 @@ CREATE TABLE Device (
                         id SERIAL PRIMARY KEY,
                         name VARCHAR(50) NOT NULL,
                         room_id INT NOT NULL,
-                        status VARCHAR(50) NOT NULL,
+                        status VARCHAR(20) NOT NULL,
+                        type VARCHAR(20) NOT NULL,
                         FOREIGN KEY (room_id) REFERENCES Room(id)
 );
 
@@ -57,7 +58,7 @@ CREATE TABLE Schedule (
                           home_id INT NOT NULL,
                           start_time TIMESTAMP NOT NULL,
                           end_time TIMESTAMP NOT NULL,
-                          repeat INT NOT NULL,
+                          repeat VARCHAR(50) NOT NULL,
                           purpose VARCHAR(50) NOT NULL,
                           FOREIGN KEY (home_id) REFERENCES Home(id)
 );

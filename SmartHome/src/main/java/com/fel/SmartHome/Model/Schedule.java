@@ -1,5 +1,6 @@
 package com.fel.SmartHome.Model;
 
+import com.fel.SmartHome.Model.enums.Repeat;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,8 +27,9 @@ public class Schedule {
     @Column(nullable = false)
     private LocalDateTime endTime;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private int repeat;//stavit da bude enum??
+    private Repeat repeat;
 
     @Column(nullable = false)
     private String purpose;

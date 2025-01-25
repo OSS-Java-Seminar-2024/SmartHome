@@ -3,6 +3,8 @@ package com.fel.SmartHome.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -29,4 +31,7 @@ public class Users {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+    @ManyToMany(mappedBy = "users")
+    private List<Home> homes;
 }
