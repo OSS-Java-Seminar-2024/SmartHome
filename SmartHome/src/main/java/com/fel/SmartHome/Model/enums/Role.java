@@ -1,4 +1,4 @@
-package com.fel.SmartHome.Model;
+package com.fel.SmartHome.Model.enums;
 
 public enum Role {
     OWNER,

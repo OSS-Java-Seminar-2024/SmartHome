@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Logs for Device</title>
+</head>
+<body>
+<h1>Logs for Device: <span th:text="${device.name}"></span></h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Action</th>
+        <th>Timestamp</th>
+        <th>Origin</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="log : ${logs}">
+        <td th:text="${log.id}"></td>
+        <td th:text="${log.action}"></td>
+        <td th:text="${log.timestamp}"></td>
+        <td th:text="${log.origin}"></td>
+        <td>
+            <form th:action="@{/logs/delete/{id}(id=${log.id})}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/devices}">Back to Devices</a></body>
+</html>

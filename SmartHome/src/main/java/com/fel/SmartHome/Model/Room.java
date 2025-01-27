@@ -20,6 +20,9 @@ public class Room {
     @JoinColumn(name = "home_id",nullable = false)
     private Home home;
 
+    @Column(nullable = false)
+    private String name;
+
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<Device> devices;
 

@@ -1,9 +1,9 @@
 package com.fel.SmartHome.Model.enums;
 
 public enum DeviceType {
-    Door,
-    Light,
+    DOOR,
+    LIGHT,
+    CAMERA,
+    WINDOW,
     AC,
-    Camera,
-    Window
 }

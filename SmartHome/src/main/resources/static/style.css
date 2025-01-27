@@ -1,0 +1,22 @@
+body {
+    background-color: #ffffff;
+}
+
+.form {
+    height: 50%;
+    width: 50%;
+    min-height: 300px;
+    min-width: 500px;
+    padding: 50px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.validationError {
+    color: #dc3545;
+}

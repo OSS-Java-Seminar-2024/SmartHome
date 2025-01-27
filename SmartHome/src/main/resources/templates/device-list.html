@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Devices</title>
+</head>
+<body>
+<h1>Devices</h1>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Device Name</th>
+    <th>Type</th>
+    <th>Status</th>
+    <th>Room</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="device : ${devices}">
+    <td th:text="${device.name}"></td>
+    <td th:text="${device.type}"></td>
+    <td th:text="${device.status}"></td>
+    <td th:text="${device.room.name}"></td>
+    <td>
+      <a th:href="@{/devices/update-status/{id}(id=${device.id})}">Update status</a>
+      <a th:href="@{/logs/device/{deviceId}(deviceId=${device.id})}">View Logs</a>
+      |
+      <form th:action="@{/devices/delete/{id}(id=${device.id})}" method="post" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<a href="/devices/create">Add New Device</a>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.fel.SmartHome.Model;
 
+import com.fel.SmartHome.Model.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 

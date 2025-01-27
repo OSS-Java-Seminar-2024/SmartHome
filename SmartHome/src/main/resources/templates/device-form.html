@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <title>Add new Device</title>
+</head>
+<body>
+<h1>Add new Device</h1>
+
+<form th:action="@{/devices/create}" th:object="${device}" method="post">
+  <div>
+    <label for="name">Device Name:</label>
+    <input type="text" id="name" name="name" th:field="*{name}" required>
+  </div>
+  <div>
+    <label for="type">Device type:</label>
+    <select id="type" name="type" th:field="*{type}">
+      <option th:each="type : ${types}" th:value="${type}" th:text="${type}"></option>
+    </select>
+  </div>
+  <div>
+    <label for="status">Device status:</label>
+    <select id="status" name="status" th:field="*{status}">
+      <option th:each="status : ${statuses}" th:value="${status}" th:text="${status}"></option>
+    </select>
+  </div>
+  <div>
+    <label for="room">Room:</label>
+    <select id="room" name="room.id" th:field="*{room.id}">
+      <option th:each="room : ${rooms}" th:value="${room.id}" th:text="${room.name}"></option>
+    </select>
+  </div>
+  <div>
+    <button type="submit">Save device</button>
+  </div>
+</form>
+
+<a href="/devices">Return to the device list</a>
+</body>
+</html>

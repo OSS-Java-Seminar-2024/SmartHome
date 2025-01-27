@@ -15,6 +15,7 @@ CREATE TABLE Users (
 CREATE TABLE Room (
                       id SERIAL PRIMARY KEY,
                       home_id INT NOT NULL,
+                      name VARCHAR(50) NOT NULL,
                       devices VARCHAR(50) NOT NULL,
                       FOREIGN KEY (home_id) REFERENCES Home(id)
 );
